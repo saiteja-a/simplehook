@@ -6,5 +6,5 @@ app = FastAPI()
 async def receive_event(payload: dict = Body(...)):
     with open("events.txt", "a") as file:
         file.write(str(payload) + "\n")
-
+    print("Saved payload:", payload)
     return {"status": "received"}
